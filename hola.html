@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De un 'hola' a un 'para siempre'</title>
+    <!-- Incluye el CDN de Tailwind CSS para un diseño moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga la fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados para el cuerpo y las animaciones */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #FFC0CB, #F56565, #38A169, #D97706); /* Gradiente con los colores preferidos */
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+            color: #1a202c; /* Color de texto oscuro para buen contraste */
+        }
+
+        /* Animación para el gradiente de fondo */
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animación de entrada para los elementos de la historia */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Animación especial para el mensaje final */
+        @keyframes pulseAndZoom {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animated-love-message {
+            animation: pulseAndZoom 2s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex items-center justify-center p-4">
+
+    <!-- Contenedor principal de la historia -->
+    <main class="max-w-3xl w-full bg-white bg-opacity-80 rounded-3xl shadow-2xl p-8 md:p-12 space-y-12 backdrop-blur-md">
+
+        <!-- Título principal de la historia -->
+        <header id="story-header" class="text-center fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold text-rose-500 mb-2 drop-shadow-md">
+                De un 'hola' a un 'para siempre'
+            </h1>
+            <p class="text-lg md:text-xl text-amber-900 font-semibold drop-shadow-sm">
+                Nuestra historia
+            </p>
+        </header>
+
+        <!-- Secciones de la historia. Inicialmente están ocultas. -->
+        <section id="section-0" class="hidden">
+            <h2 class="text-2xl md:text-3xl font-bold text-pink-400 mb-4 border-b-2 border-pink-400 pb-2">
+                El "Hola"
+            </h2>
+            <p class="text-base md:text-lg text-gray-800 leading-relaxed">
+                Nos conocimos en línea, en la plataforma Discord. Desde el principio, conectamos de una manera especial. Fue su sonrisa la que me cautivó, pero su forma de ser, su inteligencia y su manera de expresarse me demostraron que ella era diferente a todas las demás. Siendo honesto, si ella no hubiera dado el primer paso con ese sencillo "hola", esta historia nunca se habría escrito.
+            </p>
+        </section>
+
+        <section id="section-1" class="hidden">
+            <h2 class="text-2xl md:text-3xl font-bold text-emerald-500 mb-4 border-b-2 border-emerald-500 pb-2">
+                El desarrollo de la relación
+            </h2>
+            <p class="text-base md:text-lg text-gray-800 leading-relaxed">
+                A pesar de que la distancia nos ha mantenido separados físicamente, hemos construido un puente de comunicación a través de mensajes y la promesa de que algún día nos veremos. Aunque no hemos podido tener recuerdos en persona, atesoro las fotos graciosas que le he enviado, a veces sintiéndome avergonzado, pero con la única intención de verla feliz. Nos apoyamos mutuamente, escuchando los problemas del otro y estando presentes a través de la pantalla, siempre ahí, a pesar de la distancia.
+            </p>
+        </section>
+
+        <section id="section-2" class="hidden">
+            <h2 class="text-2xl md:text-3xl font-bold text-amber-900 mb-4 border-b-2 border-amber-900 pb-2">
+                El "Para siempre"
+            </h2>
+            <p class="text-base md:text-lg text-gray-800 leading-relaxed">
+                Celebrar dos años desde que esta historia comenzó significa muchísimo. Dos años de conocerte y de pasar mis días contigo, y un mes como tu novio, es algo que me llena de alegría porque eres la chica que más amo. Contigo me imagino en una casa grande, con un jardín donde te sientas cómoda, en un lugar tranquilo pero con todo cerca. Sueño con casarme contigo, y nuestro mayor anhelo es estar juntos, casarnos y tener nuestra propia casa.
+            </p>
+        </section>
+
+        <!-- Sección final: El mensaje de amor -->
+        <section id="section-3" class="hidden">
+            <div class="text-center p-8 animated-love-message">
+                <h2 class="text-5xl md:text-7xl font-bold text-rose-500 drop-shadow-md">
+                    ¡Te amo!
+                </h2>
+            </div>
+        </section>
+
+        <!-- Controles de la presentación -->
+        <div id="story-controls" class="text-center mt-8">
+            <button id="next-button" class="bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95">
+                Empezar
+            </button>
+            <button id="restart-button" class="hidden bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95">
+                Reiniciar
+            </button>
+        </div>
+
+    </main>
+
+    <script>
+        const storyHeader = document.getElementById('story-header');
+        const sections = [
+            document.getElementById('section-0'),
+            document.getElementById('section-1'),
+            document.getElementById('section-2'),
+            document.getElementById('section-3')
+        ];
+        const nextButton = document.getElementById('next-button');
+        const restartButton = document.getElementById('restart-button');
+        let currentSectionIndex = -1;
+
+        // Función para mostrar la siguiente sección
+        function showNextSection() {
+            if (currentSectionIndex < sections.length - 1) {
+                // Ocultar la sección actual (si existe)
+                if (currentSectionIndex >= 0) {
+                    sections[currentSectionIndex].classList.add('hidden');
+                }
+                
+                // Si estamos en la primera "diapositiva", ocultamos el título
+                if (currentSectionIndex === -1) {
+                    storyHeader.classList.add('hidden');
+                }
+
+                // Mostrar la siguiente sección
+                currentSectionIndex++;
+                sections[currentSectionIndex].classList.remove('hidden');
+                sections[currentSectionIndex].classList.add('fade-in');
+
+                // Si la sección actual es el mensaje final, usamos una animación diferente
+                if (currentSectionIndex === sections.length - 1) {
+                    sections[currentSectionIndex].classList.remove('fade-in');
+                    sections[currentSectionIndex].classList.add('animated-love-message');
+                    nextButton.textContent = 'Terminado';
+                } else {
+                    nextButton.textContent = 'Siguiente';
+                }
+            } else {
+                // Si hemos llegado al final, ocultar el botón "Siguiente" y mostrar "Reiniciar"
+                nextButton.classList.add('hidden');
+                restartButton.classList.remove('hidden');
+            }
+        }
+
+        // Función para reiniciar la presentación
+        function restartStory() {
+            // Ocultar todas las secciones
+            sections.forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('fade-in');
+                section.classList.remove('animated-love-message');
+            });
+            // Reiniciar el índice y mostrar el título
+            currentSectionIndex = -1;
+            storyHeader.classList.remove('hidden');
+            nextButton.textContent = 'Empezar';
+            nextButton.classList.remove('hidden');
+            restartButton.classList.add('hidden');
+        }
+
+        // Asignar los eventos a los botones
+        nextButton.addEventListener('click', showNextSection);
+        restartButton.addEventListener('click', restartStory);
+    </script>
+</body>
+</html>
